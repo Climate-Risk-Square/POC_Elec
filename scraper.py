@@ -113,7 +113,7 @@ if __name__ == "__main__":
     with open("data_ghg.json", "r") as json_file:
         data = json.load(json_file)
 
-    visualise(data, "Spain", "202001140000")
+    visualise(data, "Germany", "202012160000")
 
     """
     zones = ["10Y1001A1001A83F", "10YFR-RTE------C", "10YNL----------L", "10YES-REE------0", "10YCH-SWISSGRIDZ",

@@ -43,9 +43,7 @@ def add_ghg_emissions(path="data.json"):
             sources = list(data[country][date])
             data[country][date].update({"GHG emissions": {}})
             for k in range(len(data[country][date][sources[0]])):
-                data[country][date]["GHG emissions"].update({str(k + 1): str(np.sum(
-                    [ipcc_coef[source] * int(data[country][date][source][str(k + 1)]) / 1e6 for source in sources if
-                     str(k + 1) in data[country][date][source].keys()]))})
+                data[country][date]["GHG emissions"].update({str(k + 1): str(np.sum([ipcc_coef[source] * int(data[country][date][source][str(k + 1)])*1e3 for source in sources if str(k + 1) in data[country][date][source].keys()]) / np.sum([int(data[country][date][source][str(k + 1)])*1e3 for source in sources if str(k + 1) in data[country][date][source].keys()]))}) #g de co2 par KWh sur la journée.
     return data
 
 
